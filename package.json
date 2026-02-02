@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@upleveled/react-scripts": "5.1.3",
+    "randomcolor": "^0.6.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "sass": "1.97.3"
