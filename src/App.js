@@ -31,21 +31,15 @@ export default function App() {
   return (
     <ColorWrapper onSubmit={handleSubmit}>
       {color && (
-        <div style={{ marginBottom: '1rem' }}>
-          {'Generated Color: '}
-          <div
-            style={{
-              display: 'inline-block',
-              lineHeight: 1.5,
-              backgroundColor: color,
-              padding: '0 0.4rem',
-            }}
-          >
-            <span
-              style={{ filter: 'invert(1)' }}
-            >{`background: ${color}, hex: ${color}`}</span>
-          </div>
-        </div>
+        <div
+          style={{
+            display: 'inline-block',
+            lineHeight: 1.5,
+            backgroundColor: color,
+            padding: '0 0.4rem',
+            marginBottom: '1rem',
+          }}
+        >{`Generated Color: ${color}`}</div>
       )}
       <InputWrapper>
         <label htmlFor="hue">hue: </label>
