@@ -1,6 +1,12 @@
 import randomColor from 'randomcolor';
 import { useState } from 'react';
-import { Button, ColorSelect, ColorWrapper, InputWrapper } from './App.styles';
+import {
+  Button,
+  ColorSelect,
+  ColorWrapper,
+  GeneratedColor,
+  InputWrapper,
+} from './App.styles';
 
 const HUES = [
   'red',
@@ -12,7 +18,7 @@ const HUES = [
   'pink',
   'monochrome',
 ];
-const LUMINOSITY = ['bright', 'light', 'dark'];
+const LUMINOSITIES = ['bright', 'light', 'dark'];
 
 export default function App() {
   const [color, setColor] = useState('');
@@ -31,21 +37,15 @@ export default function App() {
   return (
     <ColorWrapper onSubmit={handleSubmit}>
       {color && (
-        <div
-          style={{
-            display: 'inline-block',
-            lineHeight: 1.5,
-            backgroundColor: color,
-            padding: '0 0.4rem',
-            marginBottom: '1rem',
-          }}
-        >{`Generated Color: ${color}`}</div>
+        <GeneratedColor style={{ '--background-color': color }}>
+          {`Generated Color: ${color}`}
+        </GeneratedColor>
       )}
       <InputWrapper>
         <label htmlFor="hue">hue: </label>
-        <ColorSelect id="hue" name="hue" type="text">
+        <ColorSelect id="hue" name="hue">
           {HUES.map((hue) => (
-            <option key={`key-${hue}`} value={hue}>
+            <option key={`hue-${hue}`} value={hue}>
               {hue}
             </option>
           ))}
@@ -53,15 +53,15 @@ export default function App() {
       </InputWrapper>
       <InputWrapper>
         <label htmlFor="luminosity">luminosity: </label>
-        <ColorSelect id="luminosity" name="luminosity" type="text">
-          {LUMINOSITY.map((luminosity) => (
-            <option key={`key-${luminosity}`} value={luminosity}>
+        <ColorSelect id="luminosity" name="luminosity">
+          {LUMINOSITIES.map((luminosity) => (
+            <option key={`luminosity-${luminosity}`} value={luminosity}>
               {luminosity}
             </option>
           ))}
         </ColorSelect>
       </InputWrapper>
-      <Button type="submit">Generate</Button>
+      <Button>Generate</Button>
     </ColorWrapper>
   );
 }

@@ -10,6 +10,14 @@ export const ColorWrapper = styled.form`
   padding-left: 1rem;
 `;
 
+export const GeneratedColor = styled.div`
+  display: inline-block;
+  line-height: 1.5;
+  background-color: var(--background-color);
+  padding: 0 0.4rem;
+  margin-bottom: 1rem;
+`;
+
 export const InputWrapper = styled.fieldset`
   box-sizing: border-box;
   padding: 0;
